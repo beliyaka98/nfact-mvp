@@ -1,0 +1,62 @@
+{% extends 'main/base.html' %}
+{% load static %}
+{% block cssjs %}
+<link rel="stylesheet" href="{% static 'main/friends.css' %}">
+{% endblock %}
+{% block content %}
+<div class="container1">
+    <div class='friends'>
+      <div class='top-main'>
+        <h1>{{ profile.user }}, here your cool friends!</h1>
+      </div>
+      <div class="friens-list">
+          {% for friend in profile.get_friends %}
+            <div class="friend-card">
+                <div class="card-img">
+                    <img src="{% static friend.profile.photo %}" class="friends-logo">
+                </div>
+                <div class="card-name">
+                    <h2>{{friend}}</h2>
+                    <h2>{{friend.profile.levels}}</h2>
+                </div>
+                <div class="card-challenges">
+                    {% for item in friend.profile.get_challenges %}
+                        <div class="challenge-card">
+                            <h4>{{item.challenge}}</h4>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+          {% endfor %}
+      </diV>
+    </div>
+    <div class="all-users">
+      <div class='top-main'>
+        <h1>don't be a log, find yourself a friend!</h1>
+      </div>
+      <div class="users-list">
+        <div class="find_friend">
+          <input type="text" placeholder="your friend looks like frog?">
+          <input type="submit" value="X">
+        </div>
+          {% for profile in profile.get_not_friends %}
+            <div class="users">
+                <div class="wrapper">
+                    <div class="userss-text">
+                        <img src="{% static profile.photo %}">
+                    </div>
+                    <div class="userss-text">
+                        <span>{{profile}}</span>
+                    </div>
+                </div>
+                <div class="userss-text">
+                    <a href="{% url 'create_relationship' profile_id=profile.id %}">Add</a>
+
+                </div>
+            </div>
+          {% endfor %}
+      </div>
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,77 @@
+{% extends 'main/base.html' %}
+{% load static %}
+{% block cssjs %}
+<link rel="stylesheet" href="{% static 'main/challenges.css' %}">
+<script type="text/javascript" src="{% static 'main/challenges.js' %}"></script>
+{% endblock %}
+{% block content %}
+  <div class="challenge-main">
+    <div class="challenge-main-left">
+      <div class="challenge-main-card">
+        <div class="challenge-card-top">
+          {% for challenge in challenges %}
+          <div class="challenge-card-main" style="background-color: {{challenge.challenge.color}};">
+            <span>{{challenge.challenge}}</span>
+
+            <!--{% for record in my_challenge.get_all_self_hours %}
+              {{record.participant}}
+              {{record.self_hours}}
+            {% endfor %}-->
+            <div class="card-cel">
+              <span>{{challenge.self_hours}}/{{challenge.challenge.hours}}</span>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+        <div class="challenge-card-bottom">
+          <button id="show_create" onclick="nada()">
+            Create challenge
+          </button>
+          <div class="popup">
+            <div class="close" id="close-btn" onclick="nenada()">
+              <span class="material-icons-outlined">close</span>
+            </div>
+            <h2>Create new challenge </h2>
+
+            <form method="post">
+            {% csrf_token %}
+            {{challenge_form}}
+            {% for friend in request.user.profile.get_friends %}
+              <div class="labeles">
+                <input type="checkbox" id="{{friend.id}}" name="challengefriends" value="{{friend.id}}">
+                <label for="{{friend.id}}"> {{friend}}</label><br>
+              </div>
+            {% endfor %}
+            <input type="submit" value="Create challenge">
+            </form>
+          </div>
+        </div>
+<!--
+        <div class="card-right">
+          {% for relation in challenge_relationship %}
+            <div class="card-mini">
+              <div class="rightt">
+                <div class="friendss-text">
+                  <a href=""><span>{{relation.sender}}</span></a>
+                  <span>challenged you! {{relation.challenge}}</span>
+                </div>
+                <div class="acceptdecline">
+                  <a href="{% url 'accept_challenge_relationship' profile_id=relation.sender.id %}"><span class="accept">Accept</span></a>
+                  <a href="{% url 'decline_challenge_relationship' profile_id=relation.sender.id %}"><span class="decline">Decline</span></a>
+                </div>
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+-->
+      </div>
+    </div>
+    <div class="challenge-main-right">
+      <div class="challenge-main-right-card">
+        <div class="content1">
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}
+

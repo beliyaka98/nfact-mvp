@@ -1,0 +1,127 @@
+.maincube{
+    display: grid;
+    grid-template-columns: 33% auto;
+}
+
+
+.left-inner-maincube{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.profile-card{
+    background-color: white;
+    height: 80vh;
+    max-width: 22rem;
+    width: 100%;
+    filter: drop-shadow(0px 0px 15px rgba(0,0,0,0.15));
+    border-radius: 23px;
+    display: flex;
+    flex-direction: column;
+    padding-top: 2rem;
+}
+
+.profile-card-photo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.profile-card-photo img{
+    width: 8rem;
+    height: 8rem;
+    border-radius: 50%;
+}
+
+.profile-card-name-age{
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    padding-top: 2rem;
+    padding-bottom: 1rem;
+}
+
+.profile-card-things{
+    display: flex;
+    justify-content: center;
+}
+
+.profile-card-things-f{
+    padding: 0.5rem 0.8rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.profile-card-things-level{
+    padding: 0 1rem;
+    margin: 0.5rem 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-left-style: solid;
+    border-right-style: solid;
+    border-width: 1px;
+    border-color: lightgray;
+}
+
+.profile-card-big{
+    font-weight: 800;
+    font-size: 20px;
+}
+
+.profile-card-little{
+    font-size: 15px;
+}
+
+.profile-card-about{
+    padding: 2rem 2rem;
+}
+
+.right-inner-maincube{
+    display: grid;
+    grid-template-rows: 50% 50%;
+}
+
+.top-inner-maincube{
+    display: flex;
+    justify-content: center;
+    padding-left: 2rem;
+    padding-top: 10vh;
+    gap: 2rem;
+}
+
+.bottom-inner-maincube{
+    display: flex;
+    justify-content: center;
+    padding-left: 2rem;
+    gap: 2rem;
+}
+
+
+.top-card{
+    background-color: white;
+    height: 36vh;
+    max-width: 21rem;
+    width: 100%;
+    filter: drop-shadow(0px 0px 15px rgba(0,0,0,0.15));
+    border-radius: 23px;
+    display: flex;
+    flex-direction: column;
+    padding-top: 2rem;
+}
+
+.bottom-card{
+    background-color: white;
+    height: 40vh;
+    max-width: 44rem;
+    width: 100%;
+    filter: drop-shadow(0px 0px 15px rgba(0,0,0,0.15));
+    border-radius: 23px;
+    display: flex;
+    flex-direction: column;
+}

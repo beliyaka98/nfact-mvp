@@ -1,0 +1,50 @@
+{% extends 'main/base.html' %}
+{% load static %}
+{% block cssjs %}
+<link rel="stylesheet" href="{% static 'main/profile.css' %}">
+{% endblock %}
+{% block content %}
+<div class="maincube">
+    <div class="left-inner-maincube">
+        <div class="profile-card">
+            <div class="profile-card-photo">
+                <img src="{% static profile.photo %}">
+            </div>
+            <div class="profile-card-name-age">
+                <h2>{{ profile.user }},</h2>
+                <h2>24</h2>
+            </div>
+            <div class="profile-card-things">
+                <div class="profile-card-things-f">
+                    <span class="profile-card-big">0</span>
+                    <span class="profile-card-little">Python</span>
+                </div>
+                <div class="profile-card-things-level">
+                    <span class="profile-card-big">{{ profile.levels }}</span>
+                    <span class="profile-card-little">level</span>
+                </div>
+                <div class="profile-card-things-f">
+                    <span class="profile-card-big">0</span>
+                    <span class="profile-card-little">friends</span>
+                </div>
+            </div>
+            <div class="profile-card-about">
+                <span>I am python django web developer! i am studying django and frontend !</span>
+            </div>
+        </div>
+    </div>
+    <div class="right-inner-maincube">
+        <div class="top-inner-maincube">
+            <div class="top-card">
+            </div>
+            <div class="top-card">
+            </div>
+        </div>
+        <div class="bottom-inner-maincube">
+            <div class="bottom-card">
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

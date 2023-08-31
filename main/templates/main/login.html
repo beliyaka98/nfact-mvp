@@ -1,0 +1,61 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>T2itle</title>
+    <link rel="stylesheet" href="{% static 'main/login.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;800;900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+
+    <div class="container">
+            <div class="leftsider">
+                <img src="{% static 'main/crocodile.png' %}" class="imgs">
+            </div>
+        <form method="post">
+            {% csrf_token %}
+            <div class="rightsider">
+                <div class="logo">
+                  <span class="logo-text">Dino<span class="success">Do</span></span>
+                </div>
+                <p>Your amazing account</p>
+                <div class="cards">
+                  <div class="card-box">
+                      <span class="details"></span>
+                      <input type="text" placeholder="Username" name="username">
+                  </div>
+                  <div class="card-box">
+                      <span class="details"></span>
+                      <input type="password" placeholder="Password" name="password">
+                  </div>
+                    <div>
+                        {% if messages %}
+                            {% for message in messages%}
+                            {{message.tags}} {{ message }}
+                            {% endfor %}
+                        {% endif %}
+                    </div>
+                  <div class="card-box">
+                      <div class="button">
+                          <input type="submit" value="Log in">
+                      </div>
+                  </div>
+                  <div class="card-boxer">
+                      <span class="forhot">Forgot Password? </span>
+                  </div>
+
+                  <div class="card-boxer">
+                      <span>Newbee ? </span>
+                      <a href="{% url 'register' %}">Register</a>
+                  </div>
+
+                </div>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

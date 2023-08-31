@@ -1,0 +1,49 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>T2itle</title>
+    <link rel="stylesheet" href="{% static 'main/register.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;800;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+            <div class="leftsider">
+                <img src="{% static 'main/love.png' %}" class="imgs">
+            </div>
+
+
+            <div class="rightsider">
+                <div class="logo">
+                  <span class="logo-text">Dino<span class="success">Do</span></span>
+                </div>
+                <p>Create your amazing account</p>
+                <div class="cards">
+                <form method="post">
+                    {% csrf_token %}
+                    {% for field in form %}
+                      <div class="card-box">
+                          <span class="details"></span>
+                          {{field}}
+                      </div>
+                    {% endfor %}
+                    <div class="card-box">
+                      <div class="button">
+                          <input type="submit" value="Register">
+                      </div>
+                    </div>
+                </form>
+
+                  <div class="card-boxer">
+                      <span>Already have account ? </span>
+                      <a href="{% url 'login' %}">Login</a>
+                  </div>
+
+                </div>
+
+    </div>
+  </body>
+</html>
